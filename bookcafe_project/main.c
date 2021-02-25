@@ -15,6 +15,11 @@ void add();
 void delete();
 void list();
 void find();
+void help(); 
+
+void readFile();
+void saveFile();
+
 
 int book_no[CAPACITY];
 char* book_name[CAPACITY];
@@ -24,7 +29,6 @@ int book_cnt = 0;
 int main(void) {
 
 	char cmd[IN_BUFFER_SIZE]; 
-
 
 	while (true) {
 
@@ -43,13 +47,23 @@ int main(void) {
 		else if(strcmp(cmd, "delete") == 0) {
 			delete(); 
 		} 
-		else if(strcmp(cmd, "quit") == 0) {
+		else if (strcmp(cmd, "h") == 0) {
+			help(); 
+		}
+		else if (strcmp(cmd, "read") == 0) {
+			readFile();
+		}
+		else if (strcmp(cmd, "save") == 0) {
+			saveFile();
+		}
+		else if (strcmp(cmd, "quit") == 0) {
 			break;
 		}
 		else {
-			scanf(" %s", cmd); //-- Enter 삭제 
+			scanf(" ", cmd); //-- Enter 삭제 
 			printf("잘못된 명령어를 입력하였습니다. ex) add/delete/find/list \n");
 		}
+
 	}
 
 	return 0; 
@@ -58,8 +72,10 @@ int main(void) {
 
 void add() {
 	char str1[IN_BUFFER_SIZE], str2[IN_BUFFER_SIZE]; 
+
 	scanf("%s", str1); 
 	scanf("%s", str2);
+
 	book_no[book_cnt] = book_cnt + 1;
 	//book_name[book_cnt] = strcpy(book_name[book_cnt], str1); <-- error
 	book_name[book_cnt] = _strdup(str1); //str1;  //book_name[book_cnt] = strcpy(book_name[book_cnt], str1);
@@ -81,7 +97,6 @@ void find() {
 	printf("책 목록중에 '%s' 라는 책은 존재하지 않습니다!\n",  str1);
 }
 
-
 void delete() {
 	int target_no;
 	scanf("%d", &target_no);
@@ -100,9 +115,59 @@ void delete() {
 
 }
 
-
 void list() {
 	for (int i = 0; i < book_cnt; i++) {
 		printf("%d\t%s\t%s\n", book_no[i], book_name[i], book_author[i]);
 	}
+}
+
+void help() {
+	printf("---------------------------------\n");
+	printf("책추가 : add 책번호 책이름 작가 [엔터]\n");
+	printf("책삭제 : del 책번호 [엔터]\n");
+	printf("---------------------------------\n");
+}
+
+void readFile() {
+	char fileName[IN_BUFFER_SIZE];
+	char  str2[IN_BUFFER_SIZE], str3[IN_BUFFER_SIZE];
+	int no = 0; 
+
+	scanf("%s", fileName);
+	FILE* fp = fopen(fileName, "r"); 
+	if (fp == NULL) {
+		printf("파일 %s 을 여는데 실패하였습니다.\n", fileName);
+		return; 
+	}
+
+	while (fscanf(fp, "%d", &no) != EOF) {
+		fscanf(fp, "%s", str2); 
+		fscanf(fp, "%s", str3);
+
+		book_no[book_cnt] = no;
+		book_name[book_cnt] = _strdup(str2); //str1;  //book_name[book_cnt] = strcpy(book_name[book_cnt], str1);
+		book_author[book_cnt] = _strdup(str3); // str2;'
+		book_cnt++;
+	}
+
+	printf("load ended\n");
+	fclose(fp);
+}
+
+void saveFile() {
+	char fileName[IN_BUFFER_SIZE];
+
+	scanf("%s", fileName); 
+
+	FILE* fp = fopen(fileName, "w"); 
+	if (fp == NULL) {
+		printf("Error!");
+		return; 
+	}
+
+	for (int i = 0; i < book_cnt; i++) {
+		fprintf(fp, "%d %s %s\n", book_no[i], book_name[i], book_author[i]);
+	}
+
+	fclose(fp);
 }
