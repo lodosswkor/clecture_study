@@ -60,10 +60,10 @@ int main(void) {
 			break;
 		}
 		else {
-			scanf(" ", cmd); //-- Enter 삭제 
 			printf("잘못된 명령어를 입력하였습니다. ex) add/delete/find/list \n");
 		}
 
+		scanf("%s\n", cmd); //-- Enter 삭제 
 	}
 
 	return 0; 
@@ -71,6 +71,7 @@ int main(void) {
 
 
 void add() {
+
 	char str1[IN_BUFFER_SIZE], str2[IN_BUFFER_SIZE]; 
 
 	scanf("%s", str1); 

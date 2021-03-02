@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2ab96026-449e-4655-87b4-453de0c2a85f}</ProjectGuid>
-    <RootNamespace>fileio</RootNamespace>
+    <ProjectGuid>{80cb76d7-c2f2-4483-a807-e5cb2fadb48d}</ProjectGuid>
+    <RootNamespace>koreansort</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,13 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="fileio01.c" />
-    <ClCompile Include="fileio02.c" />
-    <ClCompile Include="fprintf.c" />
-    <ClCompile Include="fputc_fgetc.c" />
-    <ClCompile Include="fputs_gets.c" />
-    <ClCompile Include="fread.c" />
-    <ClCompile Include="fscanf.c" />
+    <ClCompile Include="01.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

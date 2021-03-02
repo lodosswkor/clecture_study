@@ -20,7 +20,6 @@ int main02()
 
     while ((input = fgetc(stdin)) != EOF)
     {
-        //printf("%d\n", input);
         if (input == 10) break; // LF
         fputc(input, stream);
     }

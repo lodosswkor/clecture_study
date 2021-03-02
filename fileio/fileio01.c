@@ -2,11 +2,13 @@
 
 #include <stdio.h>
 
+// 파일 열기 닫기 
 
 int main01(void) {
 
 	FILE* stream; 
 	int file_state; 
+
 
 	stream = fopen("data.txt", "r"); 
 	if (stream == NULL) {

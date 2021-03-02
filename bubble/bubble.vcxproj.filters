@@ -15,25 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="fileio01.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="fileio02.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="fputc_fgetc.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="fputs_gets.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="fread.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="fprintf.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="fscanf.c">
+    <ClCompile Include="bubble.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
