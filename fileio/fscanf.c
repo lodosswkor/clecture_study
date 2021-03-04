@@ -5,7 +5,7 @@
 //--------------------------------
 #include <stdio.h>    
 
-int main()
+int main00()
 {
     char s1[100];
     int num1;

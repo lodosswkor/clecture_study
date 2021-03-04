@@ -69,7 +69,6 @@ int main(void) {
 	return 0; 
 }
 
-
 void add() {
 
 	char str1[IN_BUFFER_SIZE], str2[IN_BUFFER_SIZE]; 
